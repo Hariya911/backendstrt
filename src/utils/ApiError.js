@@ -31,4 +31,4 @@ else{
 
 }
 
-export{ApiError}
+export{ApiErrors}
