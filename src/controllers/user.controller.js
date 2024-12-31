@@ -264,7 +264,7 @@ const changeCurrentPassword = asyncHandler(async(req,res) =>
     
         return res.
         staus(200).
-        json(200,req.user,"current user fetched successfully")
+        json(new ApiRes(200,req.user,"current user fetched successfully"))
     })
 
 
@@ -277,7 +277,7 @@ if(!fullname || !email){
     throw new ApiError(400,"both email,password are required")
 
 }
-const user = User.findByIdAndUpdate(
+const user = await User.findByIdAndUpdate(
     req.user?._id,
 {
 $set:{
